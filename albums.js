@@ -1,26 +1,19 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <script src="/albums.js"></script>
-    <title>Users</title>
-</head>
-<body>
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Title</th>
-                <th>Update</th>
-            </tr>
-        </thead>
-        <tbody id="t_body">
-            
-        </tbody>
-    </table>
-</body>
+$(document).ready(function () {
+    show_albums(); 
+});
+function show_albums (){
+    $.ajax({
+        meyhod : 'GET',
+        url: "https://jsonplaceholder.typicode.com/albums",
+        success: function (response) {
+            response.forEach(function(temp) {
+                // console.log(temp.name);
+                $('#t_body').append("<tr ><td>"+temp.name+"</td><td>"+temp.email+"</td><td><button data-id = "+temp.id+" class='btn btn-primary update' >Update</button></td></tr>");
+            });
+            $('.update').click(function (e) {
+                
+                
+            });
+        }
+    });
+}
