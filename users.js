@@ -1,4 +1,3 @@
-  
 $(document).ready(function () {
     show_users(); 
 });

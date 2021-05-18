@@ -16,5 +16,4 @@ function show_albums (){
             });
         }
     });
-});
 }
